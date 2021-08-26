@@ -1,0 +1,87 @@
+.btn .active {
+    border: none;
+    box-shadow: none;
+}
+
+.payment-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    height: 500px;
+    width: 100%;
+}
+
+.payment-pay-img {
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+}
+
+.carousel-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    height: 375px;
+    width: 100%;
+}
+
+.card-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    height: 200px;
+    width: 100%;
+}
+
+.card:hover{
+    transition: 1.0s;
+    transform: translate(0, -15px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.50) !important;
+}
+.card {
+    transition: 0.5s;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.15) !important;
+}
+
+.stock {
+    transition: 0.5s;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.70) !important;
+    animation: 3s linear 2s infinite alternate up_down;
+}
+
+@keyframes up_down {
+    from {
+        transform: translate(0, -20px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-button {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    box-shadow: 0 2px 18px 2px rgba(159, 159, 159, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #c1c1c1;
+}
+
+::-webkit-scrollbar-track-piece {
+    background: #ffffff;
+    box-shadow: 0 2px 18px 2px rgba(193, 193, 193, 0.3);
+}

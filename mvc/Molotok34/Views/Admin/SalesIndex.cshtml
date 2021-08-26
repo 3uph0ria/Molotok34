@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Molotok34.Models.Sales>
+
+@{
+    ViewBag.Title = "Продажи";
+}
+
+@Html.Partial("~/Views/Shared/_AdminHeader.cshtml")
+@Html.Partial("~/Views/Shared/_NavAdmin.cshtml")
+
+<div class="col">
+    <h3 class="text-center font-weight-bold py-4">Продажи</h3>
+    <div class="shadow">
+        <div class="row p-4">
+            @if (TempData["notice"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
+                    <p class="m-0">@TempData["notice"]</p>
+                </div>
+                TempData["notice"] = null;
+            }
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Товар
+                        </th>
+                        <th>
+                            Клиент
+                        </th>
+                        <th>
+                            Телефон
+                        </th>
+                        <th>
+                            Дата продажи
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Products.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Clients.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Clients.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Views/Shared/_AdminFooter.cshtml")
+
+

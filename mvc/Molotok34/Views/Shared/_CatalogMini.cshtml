@@ -1,0 +1,92 @@
+﻿@using Molotok34.Models
+
+@{
+    
+
+    var products = Molotok34Entities.GetContext().Products.ToList();
+    var categories = Molotok34Entities.GetContext().Categories.ToList();
+}
+
+<section class="product-section clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-7 col-md-8 ml-auto mr-auto">
+                <!-- section title -->
+                <div class="section-title title-style-center_text style2">
+                    <div class="title-header">
+                        <h2 class="title">Самые продаваемые товары</h2>
+                    </div>
+                </div><!-- section title end -->
+            </div>
+        </div><!-- row end -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ttm-tabs tabs-for-products" data-effect="fadeIn">
+                    <ul class="tabs clearfix">
+                        @foreach (var item in categories)
+                        {
+                            <li class="tab"><a href="#"> @Html.DisplayFor(modelItem => item.Name)</a></li>
+                        }
+                    </ul>
+                    <div class="content-tab">
+                        <!-- content-inner -->
+                        @foreach (var category in categories)
+                        {
+
+                            System.Data.SqlClient.SqlParameter param = new System.Data.SqlClient.SqlParameter("@category", category.Id);
+                            var currentProducts = Molotok34Entities.GetContext().Database.SqlQuery<Products>("SELECT TOP 4 * FROM Products WHERE IdCategory = @category ORDER BY Id", param);
+
+
+                            <div class="content-inner">
+                                <div class="products row">
+                                    <!-- product -->
+                                    @foreach (var product in currentProducts)
+                                    {
+                                        <div class="product col-md-3 col-sm-6 col-xs-12">
+                                            <div class="product-box">
+                                                <!-- product-box-inner -->
+                                                <div class="product-box-inner">
+                                                    <div class="product-image-box">
+                                                        <img class="img-fluid pro-image-front" src="@Html.DisplayFor(modelItem => product.Img)" alt="" style="height: 300px">
+                                                        <img class="img-fluid pro-image-back" src="@Html.DisplayFor(modelItem => product.Img)" alt="" style="height: 300px">
+                                                    </div>
+                                                </div><!-- product-box-inner end -->
+                                                <div class="product-content-box">
+                                                    <a class="product-title" href="/Catalog/Product/@Html.DisplayFor(modelItem => product.Id)">
+                                                        <h2>@Html.DisplayFor(modelItem => product.Name)</h2>
+                                                    </a>
+                                                    <div class="star-ratings">
+                                                        <ul class="rating">
+                                                            @for (int i = 0; i < product.Stars; i++)
+                                                            {
+                                                                <li><i class="fa fa-star"></i></li>
+                                                            }
+                                                            @if (product.Stars < 5)
+                                                            {
+                                                                int currentStart = 5 - product.Stars;
+                                                                for (int k = 0; k < currentStart; k++)
+                                                                {
+                                                                    <li><i class="fa fa-star-o"></i></li>
+                                                                }
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                    <span class="price">
+                                                        <span class="product-Price-amount">
+                                                            <span class="product-Price-currencySymbol"></span>@Html.DisplayFor(modelItem => product.Cost)руб.
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- product-section end-->

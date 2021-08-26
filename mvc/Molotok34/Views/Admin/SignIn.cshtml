@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Авторизация";
+}
+@model Molotok34.Models.Admins
+@Html.Partial("~/Views/Shared/_AdminHeader.cshtml")
+
+
+
+<div class="page">
+    <h3 class="text-center font-weight-bold my-5">Войдите в аккаунт </h3>
+    <div class="container">
+        <div class="form-group py-2 col-lg-12 shadow">
+            @if (TempData["error_message"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show w-100" role="alert">
+                    <p class="m-0">@TempData["error_message"]</p>
+                </div>
+                TempData["error_message"] = null;
+            }
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="mt-4">
+                    <label for="login">Логин</label>
+                    @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                </div>
+                <div class="mt-4">
+                    <label for="password">Пароль</label>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="row d-flex justify-content-center py-4">
+                    <button class="btn btn-primary" type="submit">
+                        Войти
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+ @Html.Partial("~/Views/Shared/_AdminFooter.cshtml")
