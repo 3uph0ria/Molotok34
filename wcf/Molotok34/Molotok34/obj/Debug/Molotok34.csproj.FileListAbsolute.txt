@@ -1,0 +1,16 @@
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\bin\Debug\Molotok34.dll.config
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\bin\Debug\Molotok34.dll
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\bin\Debug\Molotok34.pdb
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\bin\Debug\EntityFramework.dll
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\bin\Debug\Newtonsoft.Json.dll
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\bin\Debug\EntityFramework.xml
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\bin\Debug\Newtonsoft.Json.xml
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\bin\Debug\ru\EntityFramework.resources.dll
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\obj\Debug\Molotok34.csprojAssemblyReference.cache
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\obj\Debug\Molotok34.csproj.CoreCompileInputs.cache
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\obj\Debug\Molotok34.csproj.CopyComplete
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\obj\Debug\Molotok34.dll
+D:\Git\molotok34-asp\wcf\Molotok34\Molotok34\obj\Debug\Molotok34.pdb

@@ -1,0 +1,16 @@
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\bin\Debug\ApiHost.exe.config
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\bin\Debug\ApiHost.exe
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\bin\Debug\ApiHost.pdb
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\bin\Debug\Molotok34.dll
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\bin\Debug\EntityFramework.dll
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\bin\Debug\Newtonsoft.Json.dll
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\bin\Debug\Molotok34.pdb
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\bin\Debug\Molotok34.dll.config
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\bin\Debug\EntityFramework.xml
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\bin\Debug\Newtonsoft.Json.xml
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\bin\Debug\ru\EntityFramework.resources.dll
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\obj\Debug\ApiHost.csprojAssemblyReference.cache
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\obj\Debug\ApiHost.csproj.CoreCompileInputs.cache
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\obj\Debug\ApiHost.csproj.CopyComplete
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\obj\Debug\ApiHost.exe
+D:\Git\molotok34-asp\wcf\Molotok34\ApiHost\obj\Debug\ApiHost.pdb

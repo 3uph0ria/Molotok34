@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Api" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IApi_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Molotok34.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IApi_GetProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducts" />
+  </wsdl:message>
+  <wsdl:message name="IApi_GetProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PutProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutProducts" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PutProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_DeleteProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProducts" />
+  </wsdl:message>
+  <wsdl:message name="IApi_DeleteProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PostProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostProducts" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PostProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IApi_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_GetClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClients" />
+  </wsdl:message>
+  <wsdl:message name="IApi_GetClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_GetSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSales" />
+  </wsdl:message>
+  <wsdl:message name="IApi_GetSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_GetAdmins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdmins" />
+  </wsdl:message>
+  <wsdl:message name="IApi_GetAdmins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IApi">
+    <wsdl:operation name="GetProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/GetProducts" message="tns:IApi_GetProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/GetProductsResponse" message="tns:IApi_GetProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/PutProducts" message="tns:IApi_PutProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/PutProductsResponse" message="tns:IApi_PutProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/DeleteProducts" message="tns:IApi_DeleteProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/DeleteProductsResponse" message="tns:IApi_DeleteProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/PostProducts" message="tns:IApi_PostProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/PostProductsResponse" message="tns:IApi_PostProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/GetCategories" message="tns:IApi_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/GetCategoriesResponse" message="tns:IApi_GetCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/GetClients" message="tns:IApi_GetClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/GetClientsResponse" message="tns:IApi_GetClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/GetSales" message="tns:IApi_GetSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/GetSalesResponse" message="tns:IApi_GetSales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/GetAdmins" message="tns:IApi_GetAdmins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/GetAdminsResponse" message="tns:IApi_GetAdmins_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IApi" type="tns:IApi">
+    <wsp:PolicyReference URI="#NetTcpBinding_IApi_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetProducts">
+      <soap12:operation soapAction="http://tempuri.org/IApi/GetProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutProducts">
+      <soap12:operation soapAction="http://tempuri.org/IApi/PutProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProducts">
+      <soap12:operation soapAction="http://tempuri.org/IApi/DeleteProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostProducts">
+      <soap12:operation soapAction="http://tempuri.org/IApi/PostProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap12:operation soapAction="http://tempuri.org/IApi/GetCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <soap12:operation soapAction="http://tempuri.org/IApi/GetClients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSales">
+      <soap12:operation soapAction="http://tempuri.org/IApi/GetSales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmins">
+      <soap12:operation soapAction="http://tempuri.org/IApi/GetAdmins" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Api">
+    <wsdl:port name="NetTcpBinding_IApi" binding="tns:NetTcpBinding_IApi">
+      <soap12:address location="net.tcp://localhost:45617/Api" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:45617/Api</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>WIN-D7GU2OEKS9L\Сергей</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
