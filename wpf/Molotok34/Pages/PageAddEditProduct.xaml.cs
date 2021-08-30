@@ -22,37 +22,67 @@ namespace Molotok34.Pages
     {
         ApiClient apiClient = new ApiClient("NetTcpBinding_IApi");
         private Molotok34.Api.Products _ccurrnetProduct = new Molotok34.Api.Products();
+
         public PageAddEditService(Molotok34.Api.Products selectProduct)
         {
             InitializeComponent();
             if (selectProduct != null)
             {
                 _ccurrnetProduct = selectProduct;
-                CBoxServices.SelectedItem = selectProduct.Categories;
+                CBoxServices.SelectedItem = _ccurrnetProduct.Categories;
             }
                 
             DataContext = _ccurrnetProduct;
-            CBoxServices.ItemsSource = apiClient.GetCategories();
+            CBoxServices.ItemsSource = apiClient.GetCategories().ToList();
         }
 
         private void BtnAddservice_Click(object sender, RoutedEventArgs e)
         {
-            if (_ccurrnetProduct.Cost <= 0)
+            StringBuilder erros = new StringBuilder();
+
+            if (CurrentUser.AccessProducts == false)
+                erros.AppendLine("У Вас нету доступа для внесения изминений в каталог товаров");
+            else if (String.IsNullOrEmpty(Name.Text))
+                erros.AppendLine("Введите наименование");
+            else if (String.IsNullOrEmpty(Cost.Text))
+                erros.AppendLine("Введите цену");
+            else if (String.IsNullOrEmpty(Img.Text))
+                erros.AppendLine("Введите картинку");
+            else if (String.IsNullOrEmpty(Amount.Text))
+                erros.AppendLine("Введите кол-во товара на складе");
+            else if (String.IsNullOrEmpty(Stars.Text))
+                erros.AppendLine("Введите кол-во звезд товара");
+            else if (_ccurrnetProduct.Cost <= 0)
+                erros.AppendLine("Цена должна быть больше 0");
+            else if (_ccurrnetProduct.Amount < 0)
+                erros.AppendLine("Кол-во товара на складе должно быть больше или ровно 0");
+            else if (_ccurrnetProduct.Stars < 0)
+                erros.AppendLine("Кол-во звезд товара должно быть больше или ровно 0");
+
+            if (erros.Length > 0)
             {
-                MessageBox.Show("Цена должна быть больше 0");
+                MessageBox.Show(erros.ToString());
                 return;
             }
 
             Categories p = (Categories)CBoxServices.SelectedItem;
             _ccurrnetProduct.IdCategory = p.Id;
 
-            if (_ccurrnetProduct.Id == 0)
+            try
             {
-                apiClient.PostProducts(_ccurrnetProduct);
+                if (_ccurrnetProduct.Id == 0)
+                {
+                    apiClient.PostProducts(_ccurrnetProduct);
+                }
+                else
+                {
+                    apiClient.PutProducts(_ccurrnetProduct.Id, _ccurrnetProduct);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                apiClient.PutProducts(_ccurrnetProduct.Id, _ccurrnetProduct);
+                MessageBox.Show(ex.Message);
+                return;
             }
 
             MessageBox.Show("Товар успешно сохранен");

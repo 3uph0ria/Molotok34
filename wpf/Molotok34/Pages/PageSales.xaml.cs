@@ -26,7 +26,40 @@ namespace Molotok34.Pages
         public PageSales()
         {
             InitializeComponent();
-            DGridSales.ItemsSource = apiClient.GetSales();
+
+            try
+            {
+                DGridSales.ItemsSource = apiClient.GetSales();
+            }
+            catch
+            {
+                MessageBox.Show("Включите WCF host и перезапустите приложение.");
+                return;
+            }
+        }
+
+        private void BtnDelSale_Click(object sender, RoutedEventArgs e)
+        {
+            var sale = (sender as Button).DataContext as Sales;
+
+            try
+            {
+                if (MessageBox.Show("Вы действительно хотите удалить продажу №" + sale.Id + "?", "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    apiClient.DeleteSales(sale.Id, sale);
+                    DGridSales.ItemsSource = apiClient.GetSales();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void BtnAddSale_Click(object sender, RoutedEventArgs e)
+        {
+            NavManager.AccountFrame.Navigate(new PageAddEditSales(null));
         }
     }
 }

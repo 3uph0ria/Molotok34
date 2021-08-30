@@ -26,7 +26,45 @@ namespace Molotok34.Pages
         public PageClients()
         {
             InitializeComponent();
-            DGridClients.ItemsSource = apiClient.GetClients();
+
+            try
+            {
+                DGridClients.ItemsSource = apiClient.GetClients();
+            }
+            catch
+            {
+                MessageBox.Show("Включите WCF host и перезапустите приложение.");
+                return;
+            }
+        }
+
+        private void BtnEditClients_Click(object sender, RoutedEventArgs e)
+        {
+            NavManager.AccountFrame.Navigate(new PageAddEditCLients((sender as Button).DataContext as Molotok34.Api.Clients));
+        }
+
+        private void BtnAddClient_Click(object sender, RoutedEventArgs e)
+        {
+            NavManager.AccountFrame.Navigate(new PageAddEditCLients(null));
+        }
+
+        private void BtnDelClient_Click(object sender, RoutedEventArgs e)
+        {
+            var client = (sender as Button).DataContext as Clients;
+
+            try
+            {
+                if (MessageBox.Show("Вы действительно хотите удалить клиента " + client.FullName + "?", "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    apiClient.DeleteClients(client.Id, client);
+                    DGridClients.ItemsSource = apiClient.GetClients();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Molotok34.Pages
         public PageServices()
         {
             InitializeComponent();
-            DGridProducts.ItemsSource = apiClient.GetProducts();
+            Update();
         }
 
         private void BtnEditService_Click(object sender, RoutedEventArgs e)
@@ -43,9 +43,19 @@ namespace Molotok34.Pages
 
         public void Update()
         {
-            var products = apiClient.GetProducts().ToList();
+            var products = new List<Products>();
 
-            products = products.Where(p => p.Name.Contains(Search.Text.ToLower())).ToList();
+            try
+            {
+                products = apiClient.GetProducts().ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Включите WCF host и перезапустите приложение.");
+                return;
+            }
+
+            products = products.Where(p => p.Name.ToLower().Contains(Search.Text.ToLower())).ToList();
             DGridProducts.ItemsSource = products;
 
         }
@@ -53,10 +63,19 @@ namespace Molotok34.Pages
         private void BtnDelProduct_Click(object sender, RoutedEventArgs e)
         {
             var product = (sender as Button).DataContext as Products;
-            if (MessageBox.Show("Вы действительно хотите удалить товар " + product.Name + "?", "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+
+            try
             {
-                apiClient.DeleteProducts(product.Id, product);
-                Update();
+                if (MessageBox.Show("Вы действительно хотите удалить товар " + product.Name + "?", "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    apiClient.DeleteProducts(product.Id, product);
+                    Update();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
 

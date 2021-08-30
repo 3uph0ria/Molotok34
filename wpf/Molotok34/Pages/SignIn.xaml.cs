@@ -31,12 +31,23 @@ namespace Molotok34.Pages
 
         private void BtnSignInAdmin_Click(object sender, RoutedEventArgs e)
         {
-            var user = apiClient.GetAdmins().ToList();
+            var user = new List<Admins>();
+            Molotok34.Api.Admins searchUser = new Admins();
+
+            try
+            {
+                user = apiClient.GetAdmins().ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Включите WCF host и перезапустите приложение.");
+                return;
+            }
 
             if (ApplicationConfig.IsDev)
             {
-                user = user.Where(p => p.Login.ToLower().Contains("amdin")).ToList();
-                user = user.Where(p => p.Password.ToLower().Contains(GetHash("1234"))).ToList();
+                user = user.Where(p => p.IdPermission == 1).ToList();
+                searchUser = user.FirstOrDefault();
             }
             else
             {
@@ -55,15 +66,20 @@ namespace Molotok34.Pages
 
                 user = user.Where(p => p.Login.ToLower().Contains(Login.Text.ToLower())).ToList();
                 user = user.Where(p => p.Password.ToLower().Contains(GetHash(Password.Password).ToLower())).ToList();
+                searchUser = user.FirstOrDefault();
             }
 
-            Molotok34.Api.Admins searchuser = user.FirstOrDefault();
 
-            if (searchuser == null)
+            if (searchUser == null)
             {
                 MessageBox.Show("Наверный логин или пароль", "внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+
+            if (searchUser.Permissions.AccessProducts == 1) CurrentUser.AccessProducts = true;
+            if (searchUser.Permissions.AccessClients == 1) CurrentUser.AccessClients = true;
+            if (searchUser.Permissions.AccessCategories == 1) CurrentUser.AccessCategories = true;
+            CurrentUser.PermissionName = searchUser.Permissions.Name;
 
             NavManager.MainFrame.Navigate(new Account());
         }
@@ -75,6 +91,5 @@ namespace Molotok34.Pages
                 return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(password)).Select(x => x.ToString("X2")));
             }
         }
-
     }
 }

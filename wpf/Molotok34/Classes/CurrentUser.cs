@@ -8,12 +8,9 @@ namespace Molotok34.Classes
 {
     class CurrentUser
     {
-        public static int currentCost { get; set; }
-        public static string FullName { get; set; }
         public static string PermissionName { get; set; }
         public static bool AccessClients { get; set; }
-        public static bool AccessServices { get; set; }
-        public static bool AccessClientsServicrs { get; set; }
-        public static bool AccessReport { get; set; }
+        public static bool AccessProducts { get; set; }
+        public static bool AccessCategories { get; set; }
     }
 }

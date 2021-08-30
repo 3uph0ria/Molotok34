@@ -41,3 +41,9 @@ D:\Git\molotok34-asp\WPF\Molotok34\obj\Debug\Pages\PageProducts.baml
 D:\Git\molotok34-asp\WPF\Molotok34\obj\Debug\Pages\PageAddEditProduct.g.cs
 D:\Git\molotok34-asp\WPF\Molotok34\obj\Debug\Pages\PageAddEditProduct.baml
 D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Molotok34.csprojAssemblyReference.cache
+D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageAddEditCategories.g.cs
+D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageAddEditClients.g.cs
+D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageAddEditSales.g.cs
+D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageAddEditCategories.baml
+D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageAddEditClients.baml
+D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageAddEditSales.baml

@@ -25,10 +25,8 @@ namespace Molotok34.Pages
         {
             InitializeComponent();
             AccountFrame.Navigate(new PageServices());
+            NavManager.AccountFrame = AccountFrame;
         }
-
-        
-
 
         private void Btnback_Click(object sender, RoutedEventArgs e)
         {

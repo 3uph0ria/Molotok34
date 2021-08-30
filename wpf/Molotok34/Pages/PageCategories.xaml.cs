@@ -26,7 +26,45 @@ namespace Molotok34.Pages
         public PageCategories()
         {
             InitializeComponent();
-            DGridCategories.ItemsSource = apiClient.GetCategories();
+
+            try
+            {
+                DGridCategories.ItemsSource = apiClient.GetCategories();
+            }
+            catch
+            {
+                MessageBox.Show("Включите WCF host и перезапустите приложение.");
+                return;
+            }
+        }
+
+        private void BtnEditCategory_Click(object sender, RoutedEventArgs e)
+        {
+            NavManager.AccountFrame.Navigate(new PageAddEditCategories((sender as Button).DataContext as Molotok34.Api.Categories));
+        }
+
+        private void BtnDelCategory_Click(object sender, RoutedEventArgs e)
+        {
+            var category = (sender as Button).DataContext as Categories;
+
+            try
+            {
+                if (MessageBox.Show("Вы действительно хотите удалить категорию " + category.Name + "?", "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    apiClient.DeleteCategories(category.Id, category);
+                    DGridCategories.ItemsSource = apiClient.GetCategories();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void BtnAddCategory_Click(object sender, RoutedEventArgs e)
+        {
+            NavManager.AccountFrame.Navigate(new PageAddEditCategories(null));
         }
     }
 }

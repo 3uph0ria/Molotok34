@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TextBlock
         Margin="10 0 0 0"
@@ -20,12 +21,23 @@
         Text="Header"
         Style="{StaticResource MaterialDesignHeadline5TextBlock}" />
 
-        <DataGrid Grid.Row="2" Name="DGridSales" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid Grid.Row="1" Name="DGridSales" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Клиенты" Binding="{Binding Clients.FullName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Товар" Binding="{Binding Products.Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Дата продажи" Binding="{Binding Date}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить" Name="BtnDelSale" Click="BtnDelSale_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button Content="ДОБАВИТЬ" Margin="20 5 5 5" Name="BtnAddSale" Click="BtnAddSale_Click"></Button>
+        </StackPanel>
     </Grid>
 </Page>

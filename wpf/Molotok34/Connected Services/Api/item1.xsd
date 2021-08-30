@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Molotok34.Models" />
+  <xs:element name="Connect">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConnectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConnectResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetProducts">
     <xs:complexType>
       <xs:sequence />
@@ -63,6 +75,44 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="PutCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="category" nillable="true" type="q6:Categories" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="category" nillable="true" type="q7:Categories" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="category" nillable="true" type="q8:Categories" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetClients">
     <xs:complexType>
       <xs:sequence />
@@ -71,8 +121,46 @@
   <xs:element name="GetClientsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="GetClientsResult" nillable="true" type="q6:ArrayOfClients" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="GetClientsResult" nillable="true" type="q9:ArrayOfClients" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutClients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="client" nillable="true" type="q10:Clients" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutClientsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="client" nillable="true" type="q11:Clients" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostClients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="client" nillable="true" type="q12:Clients" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostClientsResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSales">
@@ -83,8 +171,46 @@
   <xs:element name="GetSalesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="GetSalesResult" nillable="true" type="q7:ArrayOfSales" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="GetSalesResult" nillable="true" type="q13:ArrayOfSales" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutSales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="sale" nillable="true" type="q14:Sales" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutSalesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="sale" nillable="true" type="q15:Sales" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSalesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostSales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="sale" nillable="true" type="q16:Sales" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostSalesResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAdmins">
@@ -95,7 +221,7 @@
   <xs:element name="GetAdminsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="GetAdminsResult" nillable="true" type="q8:ArrayOfAdmins" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Molotok34.Models" minOccurs="0" name="GetAdminsResult" nillable="true" type="q17:ArrayOfAdmins" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

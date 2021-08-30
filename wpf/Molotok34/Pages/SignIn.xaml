@@ -11,9 +11,10 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="40*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -21,9 +22,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Image Grid.Column="1" Grid.Row="0"  Width="200" Source="../Resources/logo-img.png"></Image>
+        <Image Grid.Column="3" Grid.Row="0" Grid.RowSpan="6" Stretch="Fill" Source="../Resources/signin-bg.jpg"></Image>
 
         <TextBlock Margin="10"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"
             Text="Войдите в аккаунт"
@@ -46,7 +48,7 @@
             IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledPasswordFieldPasswordBoxEnabledComboBox}"
             materialDesign:HintAssist.Hint="Пароль" />
 
-        <StackPanel Margin="10" Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Margin="10" Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="ВОЙТИ" Name="BtnSignInAdmin" Click="BtnSignInAdmin_Click" />
         </StackPanel>
     </Grid>

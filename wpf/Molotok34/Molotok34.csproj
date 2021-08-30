@@ -107,6 +107,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\ApplicationConfig.cs" />
+    <Compile Include="Classes\ClientApi.cs" />
     <Compile Include="Classes\CurrentUser.cs" />
     <Compile Include="Classes\NavManager.cs" />
     <Compile Include="Connected Services\Api\Reference.cs">
@@ -122,7 +123,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageAddEditCategories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageAddEditClients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageAddEditProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageAddEditSales.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,8 +164,17 @@
     <Compile Include="Pages\Account.xaml.cs">
       <DependentUpon>Account.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageAddEditCategories.xaml.cs">
+      <DependentUpon>PageAddEditCategories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageAddEditClients.xaml.cs">
+      <DependentUpon>PageAddEditClients.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageAddEditProduct.xaml.cs">
       <DependentUpon>PageAddEditProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageAddEditSales.xaml.cs">
+      <DependentUpon>PageAddEditSales.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageCategories.xaml.cs">
       <DependentUpon>PageCategories.xaml</DependentUpon>
@@ -241,6 +263,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\signin-bg.jpg" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

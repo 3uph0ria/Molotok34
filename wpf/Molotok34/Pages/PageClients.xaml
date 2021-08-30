@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TextBlock
         Margin="10 0 0 0"
@@ -20,12 +21,30 @@
         Text="Header"
         Style="{StaticResource MaterialDesignHeadline5TextBlock}" />
 
-        <DataGrid Grid.Row="2" Name="DGridClients" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid Grid.Row="1" Name="DGridClients" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="BtnEditClients" Click="BtnEditClients_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить" Name="BtnDelClient" Click="BtnDelClient_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button Content="ДОБАВИТЬ" Margin="20 5 5 5" Name="BtnAddClient" Click="BtnAddClient_Click"></Button>
+        </StackPanel>
     </Grid>
 </Page>

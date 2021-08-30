@@ -36,6 +36,12 @@
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Molotok34.Models" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IApi_Connect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Connect" />
+  </wsdl:message>
+  <wsdl:message name="IApi_Connect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectResponse" />
+  </wsdl:message>
   <wsdl:message name="IApi_GetProducts_InputMessage">
     <wsdl:part name="parameters" element="tns:GetProducts" />
   </wsdl:message>
@@ -66,17 +72,71 @@
   <wsdl:message name="IApi_GetCategories_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
   </wsdl:message>
+  <wsdl:message name="IApi_PutCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutCategories" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PutCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_DeleteCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategories" />
+  </wsdl:message>
+  <wsdl:message name="IApi_DeleteCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PostCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostCategories" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PostCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostCategoriesResponse" />
+  </wsdl:message>
   <wsdl:message name="IApi_GetClients_InputMessage">
     <wsdl:part name="parameters" element="tns:GetClients" />
   </wsdl:message>
   <wsdl:message name="IApi_GetClients_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetClientsResponse" />
   </wsdl:message>
+  <wsdl:message name="IApi_PutClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutClients" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PutClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_DeleteClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClients" />
+  </wsdl:message>
+  <wsdl:message name="IApi_DeleteClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PostClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostClients" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PostClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostClientsResponse" />
+  </wsdl:message>
   <wsdl:message name="IApi_GetSales_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSales" />
   </wsdl:message>
   <wsdl:message name="IApi_GetSales_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PutSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutSales" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PutSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_DeleteSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSales" />
+  </wsdl:message>
+  <wsdl:message name="IApi_DeleteSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PostSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostSales" />
+  </wsdl:message>
+  <wsdl:message name="IApi_PostSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostSalesResponse" />
   </wsdl:message>
   <wsdl:message name="IApi_GetAdmins_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAdmins" />
@@ -85,6 +145,10 @@
     <wsdl:part name="parameters" element="tns:GetAdminsResponse" />
   </wsdl:message>
   <wsdl:portType name="IApi">
+    <wsdl:operation name="Connect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/Connect" message="tns:IApi_Connect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/ConnectResponse" message="tns:IApi_Connect_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetProducts">
       <wsdl:input wsaw:Action="http://tempuri.org/IApi/GetProducts" message="tns:IApi_GetProducts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApi/GetProductsResponse" message="tns:IApi_GetProducts_OutputMessage" />
@@ -105,13 +169,49 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IApi/GetCategories" message="tns:IApi_GetCategories_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApi/GetCategoriesResponse" message="tns:IApi_GetCategories_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="PutCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/PutCategories" message="tns:IApi_PutCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/PutCategoriesResponse" message="tns:IApi_PutCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/DeleteCategories" message="tns:IApi_DeleteCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/DeleteCategoriesResponse" message="tns:IApi_DeleteCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/PostCategories" message="tns:IApi_PostCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/PostCategoriesResponse" message="tns:IApi_PostCategories_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetClients">
       <wsdl:input wsaw:Action="http://tempuri.org/IApi/GetClients" message="tns:IApi_GetClients_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApi/GetClientsResponse" message="tns:IApi_GetClients_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="PutClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/PutClients" message="tns:IApi_PutClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/PutClientsResponse" message="tns:IApi_PutClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/DeleteClients" message="tns:IApi_DeleteClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/DeleteClientsResponse" message="tns:IApi_DeleteClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/PostClients" message="tns:IApi_PostClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/PostClientsResponse" message="tns:IApi_PostClients_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetSales">
       <wsdl:input wsaw:Action="http://tempuri.org/IApi/GetSales" message="tns:IApi_GetSales_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApi/GetSalesResponse" message="tns:IApi_GetSales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutSales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/PutSales" message="tns:IApi_PutSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/PutSalesResponse" message="tns:IApi_PutSales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/DeleteSales" message="tns:IApi_DeleteSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/DeleteSalesResponse" message="tns:IApi_DeleteSales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostSales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApi/PostSales" message="tns:IApi_PostSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApi/PostSalesResponse" message="tns:IApi_PostSales_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAdmins">
       <wsdl:input wsaw:Action="http://tempuri.org/IApi/GetAdmins" message="tns:IApi_GetAdmins_InputMessage" />
@@ -121,6 +221,15 @@
   <wsdl:binding name="NetTcpBinding_IApi" type="tns:IApi">
     <wsp:PolicyReference URI="#NetTcpBinding_IApi_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Connect">
+      <soap12:operation soapAction="http://tempuri.org/IApi/Connect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetProducts">
       <soap12:operation soapAction="http://tempuri.org/IApi/GetProducts" style="document" />
       <wsdl:input>
@@ -166,6 +275,33 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="PutCategories">
+      <soap12:operation soapAction="http://tempuri.org/IApi/PutCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategories">
+      <soap12:operation soapAction="http://tempuri.org/IApi/DeleteCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCategories">
+      <soap12:operation soapAction="http://tempuri.org/IApi/PostCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetClients">
       <soap12:operation soapAction="http://tempuri.org/IApi/GetClients" style="document" />
       <wsdl:input>
@@ -175,8 +311,62 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="PutClients">
+      <soap12:operation soapAction="http://tempuri.org/IApi/PutClients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClients">
+      <soap12:operation soapAction="http://tempuri.org/IApi/DeleteClients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostClients">
+      <soap12:operation soapAction="http://tempuri.org/IApi/PostClients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetSales">
       <soap12:operation soapAction="http://tempuri.org/IApi/GetSales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutSales">
+      <soap12:operation soapAction="http://tempuri.org/IApi/PutSales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSales">
+      <soap12:operation soapAction="http://tempuri.org/IApi/DeleteSales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostSales">
+      <soap12:operation soapAction="http://tempuri.org/IApi/PostSales" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

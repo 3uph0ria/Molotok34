@@ -751,6 +751,12 @@ namespace Molotok34.Api {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Api.IApi")]
     public interface IApi {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/Connect", ReplyAction="http://tempuri.org/IApi/ConnectResponse")]
+        bool Connect();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/Connect", ReplyAction="http://tempuri.org/IApi/ConnectResponse")]
+        System.Threading.Tasks.Task<bool> ConnectAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/GetProducts", ReplyAction="http://tempuri.org/IApi/GetProductsResponse")]
         Molotok34.Api.Products[] GetProducts();
         
@@ -781,17 +787,71 @@ namespace Molotok34.Api {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/GetCategories", ReplyAction="http://tempuri.org/IApi/GetCategoriesResponse")]
         System.Threading.Tasks.Task<Molotok34.Api.Categories[]> GetCategoriesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PutCategories", ReplyAction="http://tempuri.org/IApi/PutCategoriesResponse")]
+        void PutCategories(int id, Molotok34.Api.Categories category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PutCategories", ReplyAction="http://tempuri.org/IApi/PutCategoriesResponse")]
+        System.Threading.Tasks.Task PutCategoriesAsync(int id, Molotok34.Api.Categories category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/DeleteCategories", ReplyAction="http://tempuri.org/IApi/DeleteCategoriesResponse")]
+        void DeleteCategories(int id, Molotok34.Api.Categories category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/DeleteCategories", ReplyAction="http://tempuri.org/IApi/DeleteCategoriesResponse")]
+        System.Threading.Tasks.Task DeleteCategoriesAsync(int id, Molotok34.Api.Categories category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PostCategories", ReplyAction="http://tempuri.org/IApi/PostCategoriesResponse")]
+        void PostCategories(Molotok34.Api.Categories category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PostCategories", ReplyAction="http://tempuri.org/IApi/PostCategoriesResponse")]
+        System.Threading.Tasks.Task PostCategoriesAsync(Molotok34.Api.Categories category);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/GetClients", ReplyAction="http://tempuri.org/IApi/GetClientsResponse")]
         Molotok34.Api.Clients[] GetClients();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/GetClients", ReplyAction="http://tempuri.org/IApi/GetClientsResponse")]
         System.Threading.Tasks.Task<Molotok34.Api.Clients[]> GetClientsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PutClients", ReplyAction="http://tempuri.org/IApi/PutClientsResponse")]
+        void PutClients(int id, Molotok34.Api.Clients client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PutClients", ReplyAction="http://tempuri.org/IApi/PutClientsResponse")]
+        System.Threading.Tasks.Task PutClientsAsync(int id, Molotok34.Api.Clients client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/DeleteClients", ReplyAction="http://tempuri.org/IApi/DeleteClientsResponse")]
+        void DeleteClients(int id, Molotok34.Api.Clients client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/DeleteClients", ReplyAction="http://tempuri.org/IApi/DeleteClientsResponse")]
+        System.Threading.Tasks.Task DeleteClientsAsync(int id, Molotok34.Api.Clients client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PostClients", ReplyAction="http://tempuri.org/IApi/PostClientsResponse")]
+        void PostClients(Molotok34.Api.Clients client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PostClients", ReplyAction="http://tempuri.org/IApi/PostClientsResponse")]
+        System.Threading.Tasks.Task PostClientsAsync(Molotok34.Api.Clients client);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/GetSales", ReplyAction="http://tempuri.org/IApi/GetSalesResponse")]
         Molotok34.Api.Sales[] GetSales();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/GetSales", ReplyAction="http://tempuri.org/IApi/GetSalesResponse")]
         System.Threading.Tasks.Task<Molotok34.Api.Sales[]> GetSalesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PutSales", ReplyAction="http://tempuri.org/IApi/PutSalesResponse")]
+        void PutSales(int id, Molotok34.Api.Sales sale);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PutSales", ReplyAction="http://tempuri.org/IApi/PutSalesResponse")]
+        System.Threading.Tasks.Task PutSalesAsync(int id, Molotok34.Api.Sales sale);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/DeleteSales", ReplyAction="http://tempuri.org/IApi/DeleteSalesResponse")]
+        void DeleteSales(int id, Molotok34.Api.Sales sale);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/DeleteSales", ReplyAction="http://tempuri.org/IApi/DeleteSalesResponse")]
+        System.Threading.Tasks.Task DeleteSalesAsync(int id, Molotok34.Api.Sales sale);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PostSales", ReplyAction="http://tempuri.org/IApi/PostSalesResponse")]
+        void PostSales(Molotok34.Api.Sales sale);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/PostSales", ReplyAction="http://tempuri.org/IApi/PostSalesResponse")]
+        System.Threading.Tasks.Task PostSalesAsync(Molotok34.Api.Sales sale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApi/GetAdmins", ReplyAction="http://tempuri.org/IApi/GetAdminsResponse")]
         Molotok34.Api.Admins[] GetAdmins();
@@ -825,6 +885,14 @@ namespace Molotok34.Api {
         
         public ApiClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public bool Connect() {
+            return base.Channel.Connect();
+        }
+        
+        public System.Threading.Tasks.Task<bool> ConnectAsync() {
+            return base.Channel.ConnectAsync();
         }
         
         public Molotok34.Api.Products[] GetProducts() {
@@ -867,6 +935,30 @@ namespace Molotok34.Api {
             return base.Channel.GetCategoriesAsync();
         }
         
+        public void PutCategories(int id, Molotok34.Api.Categories category) {
+            base.Channel.PutCategories(id, category);
+        }
+        
+        public System.Threading.Tasks.Task PutCategoriesAsync(int id, Molotok34.Api.Categories category) {
+            return base.Channel.PutCategoriesAsync(id, category);
+        }
+        
+        public void DeleteCategories(int id, Molotok34.Api.Categories category) {
+            base.Channel.DeleteCategories(id, category);
+        }
+        
+        public System.Threading.Tasks.Task DeleteCategoriesAsync(int id, Molotok34.Api.Categories category) {
+            return base.Channel.DeleteCategoriesAsync(id, category);
+        }
+        
+        public void PostCategories(Molotok34.Api.Categories category) {
+            base.Channel.PostCategories(category);
+        }
+        
+        public System.Threading.Tasks.Task PostCategoriesAsync(Molotok34.Api.Categories category) {
+            return base.Channel.PostCategoriesAsync(category);
+        }
+        
         public Molotok34.Api.Clients[] GetClients() {
             return base.Channel.GetClients();
         }
@@ -875,12 +967,60 @@ namespace Molotok34.Api {
             return base.Channel.GetClientsAsync();
         }
         
+        public void PutClients(int id, Molotok34.Api.Clients client) {
+            base.Channel.PutClients(id, client);
+        }
+        
+        public System.Threading.Tasks.Task PutClientsAsync(int id, Molotok34.Api.Clients client) {
+            return base.Channel.PutClientsAsync(id, client);
+        }
+        
+        public void DeleteClients(int id, Molotok34.Api.Clients client) {
+            base.Channel.DeleteClients(id, client);
+        }
+        
+        public System.Threading.Tasks.Task DeleteClientsAsync(int id, Molotok34.Api.Clients client) {
+            return base.Channel.DeleteClientsAsync(id, client);
+        }
+        
+        public void PostClients(Molotok34.Api.Clients client) {
+            base.Channel.PostClients(client);
+        }
+        
+        public System.Threading.Tasks.Task PostClientsAsync(Molotok34.Api.Clients client) {
+            return base.Channel.PostClientsAsync(client);
+        }
+        
         public Molotok34.Api.Sales[] GetSales() {
             return base.Channel.GetSales();
         }
         
         public System.Threading.Tasks.Task<Molotok34.Api.Sales[]> GetSalesAsync() {
             return base.Channel.GetSalesAsync();
+        }
+        
+        public void PutSales(int id, Molotok34.Api.Sales sale) {
+            base.Channel.PutSales(id, sale);
+        }
+        
+        public System.Threading.Tasks.Task PutSalesAsync(int id, Molotok34.Api.Sales sale) {
+            return base.Channel.PutSalesAsync(id, sale);
+        }
+        
+        public void DeleteSales(int id, Molotok34.Api.Sales sale) {
+            base.Channel.DeleteSales(id, sale);
+        }
+        
+        public System.Threading.Tasks.Task DeleteSalesAsync(int id, Molotok34.Api.Sales sale) {
+            return base.Channel.DeleteSalesAsync(id, sale);
+        }
+        
+        public void PostSales(Molotok34.Api.Sales sale) {
+            base.Channel.PostSales(sale);
+        }
+        
+        public System.Threading.Tasks.Task PostSalesAsync(Molotok34.Api.Sales sale) {
+            return base.Channel.PostSalesAsync(sale);
         }
         
         public Molotok34.Api.Admins[] GetAdmins() {

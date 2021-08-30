@@ -14,8 +14,13 @@ namespace Molotok34
     // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "Api" в коде и файле конфигурации.
     public class Api : IApi
     {
-            private static string url = "http://gsportfolio-001-site1.btempurl.com/api/";
-            private static WebClient client = new WebClient();
+        private static string url = "http://gsportfolio-001-site1.btempurl.com/api/";
+        private static WebClient client = new WebClient();
+
+        public bool Connect()
+        {
+            return true;
+        }
 
         // Products
         public List<Products> GetProducts()
@@ -68,6 +73,43 @@ namespace Molotok34
             return JsonConvert.DeserializeObject<List<Categories>>(responce);
         }
 
+        public void PutCategories(int id, Categories category)
+        {
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url + "Categories?id=" + id);
+            httpRequest.Method = "PUT";
+            httpRequest.ContentType = "application/json";
+
+
+            using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
+            {
+                streamWriter.Write(JsonConvert.SerializeObject(category));
+            }
+
+            var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+
+        }
+
+        public void DeleteCategories(int id, Categories category)
+        {
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url + "Categories?id=" + id);
+            httpRequest.Method = "DELETE";
+            httpRequest.ContentType = "application/json";
+
+
+            using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
+            {
+                streamWriter.Write(JsonConvert.SerializeObject(category));
+            }
+
+            var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+        }
+
+        public void PostCategories(Categories category)
+        {
+            client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+            var result = client.UploadString(url + "Categories", JsonConvert.SerializeObject(category));
+        }
+
         // Clients
         public List<Clients> GetClients()
         {
@@ -75,11 +117,85 @@ namespace Molotok34
             return JsonConvert.DeserializeObject<List<Clients>>(responce);
         }
 
+        public void PutClients(int id, Clients client)
+        {
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url + "Clients?id=" + id);
+            httpRequest.Method = "PUT";
+            httpRequest.ContentType = "application/json";
+
+
+            using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
+            {
+                streamWriter.Write(JsonConvert.SerializeObject(client));
+            }
+
+            var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+
+        }
+
+        public void DeleteClients(int id, Clients client)
+        {
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url + "Clients?id=" + id);
+            httpRequest.Method = "DELETE";
+            httpRequest.ContentType = "application/json";
+
+
+            using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
+            {
+                streamWriter.Write(JsonConvert.SerializeObject(client));
+            }
+
+            var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+        }
+
+        public void PostClients(Clients clients)
+        {
+            client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+            var result = client.UploadString(url + "Clients", JsonConvert.SerializeObject(clients));
+        }
+
         // Sales
         public List<Sales> GetSales()
         {
             var responce = Encoding.UTF8.GetString(client.DownloadData(url + "Sales"));
             return JsonConvert.DeserializeObject<List<Sales>>(responce);
+        }
+
+        public void PutSales(int id, Sales sale)
+        {
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url + "Sales?id=" + id);
+            httpRequest.Method = "PUT";
+            httpRequest.ContentType = "application/json";
+
+
+            using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
+            {
+                streamWriter.Write(JsonConvert.SerializeObject(sale));
+            }
+
+            var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+
+        }
+
+        public void DeleteSales(int id, Sales sale)
+        {
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url + "Sales?id=" + id);
+            httpRequest.Method = "DELETE";
+            httpRequest.ContentType = "application/json";
+
+
+            using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
+            {
+                streamWriter.Write(JsonConvert.SerializeObject(sale));
+            }
+
+            var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+        }
+
+        public void PostSales(Sales sale)
+        {
+            client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+            var result = client.UploadString(url + "Sales", JsonConvert.SerializeObject(sale));
         }
 
 

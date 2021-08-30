@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Git\molotok34-asp\wpf\Molotok34\App.xaml
-84620091
+11824811840
 
-17-2059804152
+21-1840531854
 27257727058
-MainWindow.xaml;Pages\Account.xaml;Pages\PageAddEditProduct.xaml;Pages\PageCategories.xaml;Pages\PageClients.xaml;Pages\PageSales.xaml;Pages\PageProducts.xaml;Pages\SignIn.xaml;
+MainWindow.xaml;Pages\Account.xaml;Pages\PageAddEditCategories.xaml;Pages\PageAddEditClients.xaml;Pages\PageAddEditProduct.xaml;Pages\PageAddEditSales.xaml;Pages\PageCategories.xaml;Pages\PageClients.xaml;Pages\PageSales.xaml;Pages\PageProducts.xaml;Pages\SignIn.xaml;
 
-False
+True
 
