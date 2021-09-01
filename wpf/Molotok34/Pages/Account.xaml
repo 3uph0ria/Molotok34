@@ -7,12 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-
       Title="Account">
 
     <Grid>
-
-
         <Grid
     MinWidth="500"
     MinHeight="480">

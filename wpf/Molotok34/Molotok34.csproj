@@ -147,10 +147,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PageReports.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\PageSales.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,9 +181,6 @@
     </Compile>
     <Compile Include="Pages\PageClients.xaml.cs">
       <DependentUpon>PageClients.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\PageReports.xaml.cs">
-      <DependentUpon>PageReports.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageSales.xaml.cs">
       <DependentUpon>PageSales.xaml</DependentUpon>
