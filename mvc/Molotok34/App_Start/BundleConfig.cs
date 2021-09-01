@@ -37,7 +37,6 @@ namespace Molotok34
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
-                      "~/Content/font-awesome.css",
                       "~/Content/animate.css",
                       "~/Content/themify-icons.css",
                       "~/Content/layers.css",

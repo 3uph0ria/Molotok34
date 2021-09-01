@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище Molotok34ModelContainer" CdmEntityContainer="Molotok34Entities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище db_a790a0_gseuphoriaModelContainer" CdmEntityContainer="Molotok34Entities">
     <EntitySetMapping Name="Admins">
-      <EntityTypeMapping TypeName="Molotok34Model.Admins">
+      <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Admins">
         <MappingFragment StoreEntitySet="Admins">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdPermission" ColumnName="IdPermission" />
@@ -12,7 +12,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Categories">
-      <EntityTypeMapping TypeName="Molotok34Model.Categories">
+      <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Categories">
         <MappingFragment StoreEntitySet="Categories">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -20,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Clients">
-      <EntityTypeMapping TypeName="Molotok34Model.Clients">
+      <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Clients">
         <MappingFragment StoreEntitySet="Clients">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
@@ -30,7 +30,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Permissions">
-      <EntityTypeMapping TypeName="Molotok34Model.Permissions">
+      <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Permissions">
         <MappingFragment StoreEntitySet="Permissions">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -41,7 +41,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="Molotok34Model.Products">
+      <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Products">
         <MappingFragment StoreEntitySet="Products">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
@@ -55,7 +55,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Sales">
-      <EntityTypeMapping TypeName="Molotok34Model.Sales">
+      <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Sales">
         <MappingFragment StoreEntitySet="Sales">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />

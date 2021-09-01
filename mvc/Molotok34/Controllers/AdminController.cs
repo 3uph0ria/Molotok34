@@ -17,9 +17,11 @@ namespace Molotok34.Controllers
         private HttpCookie cookie = new HttpCookie("UserInfo");
         private Molotok34Entities db = new Molotok34Entities();
 
+
         public bool CheckAuth()
         {
-            if (CurrentUser.Id <= 0)
+
+            if (Convert.ToInt32(Session["Id"]) <= 0)
             {
                 return false;
             }
@@ -31,14 +33,24 @@ namespace Molotok34.Controllers
 
         public bool CheckAccess(string Controller)
         {
-            if ((Controller == "CategoriesCreate" || Controller == "CategoriesDelete" || Controller == "CategoriesUpd") && CurrentUser.AccessProducts == false)
+            if ((Controller == "CategoriesCreate" || Controller == "CategoriesDelete" || Controller == "CategoriesUpd") && Convert.ToBoolean(Session["AccessCategories"]) == false)
             {
                 TempData["error_message"] = "У Вас недостаточно прав для внесения изминений в товары";
                 return false;
             }
-            else if ((Controller == "ProductsCreate" || Controller == "ProductsDelete" || Controller == "ProductsUpd") && CurrentUser.AccessProducts == false)
+            else if ((Controller == "ProductsCreate" || Controller == "ProductsDelete" || Controller == "ProductsUpd") && Convert.ToBoolean(Session["AccessProducts"]) == false)
             {
                 TempData["error_message"] = "У Вас недостаточно прав для внесения изминений в категории";
+                return false;
+            }
+            else if ((Controller == "ClientsCreate" || Controller == "ClientsDelete" || Controller == "ClientssUpd") && Convert.ToBoolean(Session["AccessClients"]) == false)
+            {
+                TempData["error_message"] = "У Вас недостаточно прав для внесения изминений в базу клиентов";
+                return false;
+            }
+            else if ((Controller == "SalesCreate" || Controller == "SalesDelete" || Controller == "SalesUpd") && Convert.ToBoolean(Session["AccessProducts"]) == false)
+            {
+                TempData["error_message"] = "У Вас недостаточно прав для внесения изминений в продажи";
                 return false;
             }
             else
@@ -51,7 +63,7 @@ namespace Molotok34.Controllers
         {
             if (CheckAuth())
             {
-                return View();
+                return RedirectToRoute(new { controller = "Admin", action = "ProductsIndex" });
             }
             else
             {
@@ -80,12 +92,10 @@ namespace Molotok34.Controllers
 
             if (admin != null)
             {
-                CurrentUser.Id = admin.Id;
-                CurrentUser.AccessProducts = (admin.Permissions.AccessProducts == 1) ? true : false;
-                cookie["IdUser"] = admin.Id + "";
-                cookie["PermissionsName"] = admin.Permissions.Name;
-                cookie["AccessProducts"] = admin.Permissions.AccessProducts + "";
-                cookie["AccessClients"] = admin.Permissions + "";
+                Session["Id"] = admin.Id;
+                Session["AccessProducts"] = (admin.Permissions.AccessProducts == 1) ? true : false;
+                Session["AccessCategories"] = (admin.Permissions.AccessCategories == 1) ? true : false;
+                Session["AccessClients"] = (admin.Permissions.AccessClients == 1) ? true : false;
 
                 return RedirectToRoute(new { controller = "Admin", action = "ProductsIndex" });
             }
@@ -105,7 +115,6 @@ namespace Molotok34.Controllers
             }
             else
             {
-                TempData["notice"] = "Войдите в Ваш аккаунт";
                 return RedirectToRoute(new { controller = "Admin", action = "SignIn" });
             }
 
@@ -120,7 +129,6 @@ namespace Molotok34.Controllers
             }
             else
             {
-                TempData["notice"] = "У Вас недостаточно прав для внесения изминений в каталог товаров";
                 return RedirectToRoute(new { controller = "Admin", action = "ProductsIndex" });
             }
         }
@@ -143,7 +151,6 @@ namespace Molotok34.Controllers
             }
             else
             {
-                TempData["notice"] = "У Вас недостаточно прав для внесения изминений в каталог товаров";
                 return RedirectToRoute(new { controller = "Admin", action = "ProductsIndex" });
             }
         }
@@ -166,7 +173,6 @@ namespace Molotok34.Controllers
             }
             else
             {
-                TempData["notice"] = "У Вас недостаточно прав для внесения изминений в каталог товаров";
                 return RedirectToRoute(new { controller = "Admin", action = "ProductsIndex" });
             }
         }
@@ -188,7 +194,6 @@ namespace Molotok34.Controllers
             }
             else
             {
-                TempData["notice"] = "У Вас недостаточно прав для внесения изминений в каталог товаров";
                 return RedirectToRoute(new { controller = "Admin", action = "ProductsIndex" });
             }
         }
@@ -210,7 +215,6 @@ namespace Molotok34.Controllers
             }
             else
             {
-                TempData["notice"] = "У Вас недостаточно прав для внесения изминений в каталог товаров";
                 return RedirectToRoute(new { controller = "Admin", action = "ProductsIndex" });
             }
         }
@@ -248,7 +252,6 @@ namespace Molotok34.Controllers
             }
             else
             {
-                TempData["notice"] = "У Вас недостаточно прав для внесения изминений в категории";
                 return RedirectToRoute(new { controller = "Admin", action = "CategoriesIndex" });
             }
         }
@@ -269,7 +272,6 @@ namespace Molotok34.Controllers
             }
             else
             {
-                TempData["notice"] = "У Вас недостаточно прав для внесения изминений в категории";
                 return RedirectToRoute(new { controller = "Admin", action = "CategoriesIndex" });
             }
         }
@@ -291,7 +293,6 @@ namespace Molotok34.Controllers
             }
             else
             {
-                TempData["notice"] = "У Вас недостаточно прав для внесения изминений в категории";
                 return RedirectToRoute(new { controller = "Admin", action = "CategoriesIndex" });
             }
         }
@@ -312,7 +313,6 @@ namespace Molotok34.Controllers
             }
             else
             {
-                TempData["notice"] = "У Вас недостаточно прав для внесения изминений в категории";
                 return RedirectToRoute(new { controller = "Admin", action = "CategoriesIndex" });
             }
         }
@@ -334,7 +334,6 @@ namespace Molotok34.Controllers
             }
             else
             {
-                TempData["notice"] = "У Вас недостаточно прав для внесения изминений в категории";
                 return RedirectToRoute(new { controller = "Admin", action = "CategoriesIndex" });
             }
         }
@@ -363,6 +362,120 @@ namespace Molotok34.Controllers
             }
         }
 
+        // GET: Clients/Create
+        public ActionResult ClientsCreate()
+        {
+            if (CheckAuth() && CheckAccess("ClientsCreate"))
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "ClientsIndex" });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ClientsCreate([Bind(Include = "Id,FullName,Phone,Email")] Clients clients)
+        {
+            if (CheckAuth() && CheckAccess("ClientsCreate"))
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Clients.Add(clients);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(clients);
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "ClientsIndex" });
+            }
+        }
+
+        public ActionResult ClientsUpd(int? id)
+        {
+            if (CheckAuth() && CheckAccess("ClientsUpd"))
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Clients clients = db.Clients.Find(id);
+                if (clients == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(clients);
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "ClientsIndex" });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ClientsUpd([Bind(Include = "Id,FullName,Phone,Email")] Clients clients)
+        {
+            if (CheckAuth() && CheckAccess("ClientsUpd"))
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Entry(clients).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(clients);
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "ClientsIndex" });
+            }
+        }
+
+        // GET: Clients/Delete/5
+        public ActionResult ClientsDelete(int? id)
+        {
+            if (CheckAuth() && CheckAccess("ClientsDelete"))
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Clients clients = db.Clients.Find(id);
+                if (clients == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(clients);
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "ClientsIndex" });
+            }
+        }
+
+        [HttpPost, ActionName("ClientsDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ClientsDeleteConfirmed(int id)
+        {
+            if (CheckAuth() && CheckAccess("ClientsDelete"))
+            {
+                Clients clients = db.Clients.Find(id);
+                db.Clients.Remove(clients);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "ClientsIndex" });
+            }
+        }
+
+        // Sales
         public ActionResult SalesIndex()
         {
             if (CheckAuth())
@@ -374,6 +487,126 @@ namespace Molotok34.Controllers
             {
                 TempData["notice"] = "Войдите в Ваш аккаунт";
                 return RedirectToRoute(new { controller = "Admin", action = "SignIn" });
+            }
+        }
+
+        public ActionResult SalesCreate()
+        {
+            if (CheckAuth() && CheckAccess("SalesCreate"))
+            {
+                ViewBag.IdClient = new SelectList(db.Clients, "Id", "FullName");
+                ViewBag.IdProduct = new SelectList(db.Products, "Id", "Name");
+                return View();
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "SalesIndex" });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SalesCreate([Bind(Include = "Id,IdProduct,IdClient,Date")] Sales sales)
+        {
+            if (CheckAuth() && CheckAccess("SalesCreate"))
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Sales.Add(sales);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                ViewBag.IdClient = new SelectList(db.Clients, "Id", "FullName", sales.IdClient);
+                ViewBag.IdProduct = new SelectList(db.Products, "Id", "Name", sales.IdProduct);
+                return View(sales);
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "SalesIndex" });
+            }
+        }
+
+        public ActionResult SalesUpd(int? id)
+        {
+            if (CheckAuth() && CheckAccess("SalesUpd"))
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Sales sales = db.Sales.Find(id);
+                if (sales == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.IdClient = new SelectList(db.Clients, "Id", "FullName", sales.IdClient);
+                ViewBag.IdProduct = new SelectList(db.Products, "Id", "Name", sales.IdProduct);
+                return View(sales);
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "SalesIndex" });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SalesUpd([Bind(Include = "Id,IdProduct,IdClient,Date")] Sales sales)
+        {
+            if (CheckAuth() && CheckAccess("SalesUpd"))
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Entry(sales).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.IdClient = new SelectList(db.Clients, "Id", "FullName", sales.IdClient);
+                ViewBag.IdProduct = new SelectList(db.Products, "Id", "Name", sales.IdProduct);
+                return View(sales);
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "SalesIndex" });
+            }
+        }
+
+        public ActionResult SalesDelete(int? id)
+        {
+            if (CheckAuth() && CheckAccess("SalesDelete"))
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Sales sales = db.Sales.Find(id);
+                if (sales == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(sales);
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "SalesIndex" });
+            }
+        }
+
+        [HttpPost, ActionName("SalesDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SalesDeleteConfirmed(int id)
+        {
+            if (CheckAuth() && CheckAccess("SalesDelete"))
+            {
+                Sales sales = db.Sales.Find(id);
+                db.Sales.Remove(sales);
+                db.SaveChanges();
+                return RedirectToAction("SalesIndex");
+            }
+            else
+            {
+                return RedirectToRoute(new { controller = "Admin", action = "SalesIndex" });
             }
         }
 

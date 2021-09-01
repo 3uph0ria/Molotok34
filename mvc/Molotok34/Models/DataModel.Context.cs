@@ -28,6 +28,7 @@ namespace Molotok34.Models
             return context;
         }
 
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

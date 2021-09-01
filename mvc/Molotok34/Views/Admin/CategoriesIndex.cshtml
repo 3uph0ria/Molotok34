@@ -11,19 +11,19 @@
     <h3 class="text-center font-weight-bold py-4">Категории</h3>
     <div class="shadow">
         <div class="row p-4">
-            @if (TempData["notice"] != null)
+            @if (TempData["error_message"] != null)
             {
                 <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
-                    <p class="m-0">@TempData["notice"]</p>
+                    <p class="m-0">@TempData["error_message"]</p>
                 </div>
-                TempData["notice"] = null;
+                TempData["error_message"] = null;
             }
             <a href="/Admin/CategoriesCreate" class="btn btn-success my-2" data-toggle="modal">Добавить категорию</a>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            Наименование
                         </th>
                         <th>
                             Изменить

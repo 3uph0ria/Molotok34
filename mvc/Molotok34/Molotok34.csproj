@@ -172,7 +172,6 @@
     <Compile Include="Class\CurrentUser.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
-    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -244,6 +243,7 @@
     <Content Include="Models\DataModel.edmx.diagram">
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -306,11 +306,15 @@
     <Content Include="Views\Admin\CategoriesCreate.cshtml" />
     <Content Include="Views\Admin\ClientsIndex.cshtml" />
     <Content Include="Views\Admin\SalesIndex.cshtml" />
+    <Content Include="Views\Admin\ClientsCreate.cshtml" />
+    <Content Include="Views\Admin\ClientsDelete.cshtml" />
+    <Content Include="Views\Admin\SalesCreate.cshtml" />
+    <Content Include="Views\Admin\SalesDelete.cshtml" />
+    <Content Include="Views\Admin\SalesUpd.cshtml" />
+    <Content Include="Views\Admin\ClientsUpd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Categories\" />
-    <Folder Include="Views\Products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

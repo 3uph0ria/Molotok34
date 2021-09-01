@@ -12,11 +12,12 @@
     <div class="shadow">
         <div class="row p-4">
 
-            @if (TempData["notice"] != null)
+            @if (TempData["error_message"] != null)
             {
                 <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
-                    <p class="m-0">@TempData["notice"]</p>
+                    <p class="m-0">@TempData["error_message"]</p>
                 </div>
+                TempData["error_message"] = null;
             }
                 
             <a href="/Admin/ProductsCreate" class="btn btn-success my-2" data-toggle="modal">Добавить товар</a>
@@ -24,16 +25,16 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            Наименование
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Cost)
+                            Цена
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Amount)
+                            Кол-во
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Categories.Name)
+                            Категория
                         </th>
                         <th>
                             Изменить

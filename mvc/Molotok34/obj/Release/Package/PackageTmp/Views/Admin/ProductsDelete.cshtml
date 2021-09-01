@@ -1,0 +1,28 @@
+﻿@model Molotok34.Models.Products
+
+@{
+    ViewBag.Title = "Удаление товара";
+}
+
+@Html.Partial("~/Views/Shared/_AdminHeader.cshtml")
+@Html.Partial("~/Views/Shared/_NavAdmin.cshtml")
+
+<div class="col">
+    <h3 class="text-center font-weight-bold py-4">Удаление товара</h3>
+    <div class="shadow">
+        <div class="row p-4">
+            <p>Вы действительно хотите удалить твоар @Html.DisplayFor(model => model.Name)</p>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="text-center mt-4 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-block btn-rounded z-depth-1a" style="width: 40%;height: 50px;border-radius: 34px">Удалить</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Views/Shared/_AdminFooter.cshtml")

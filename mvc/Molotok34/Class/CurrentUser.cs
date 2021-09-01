@@ -10,6 +10,8 @@ namespace Molotok34.Class
         public static int Id { get; set; }
         public static string PermissionName { get; set; }
         public static bool AccessProducts { get; set; }
+        public static bool AccessClients { get; set; }
+        public static bool AccessCategories { get; set; }
         public static string Login { get; set; }
         public static string Password { get; set; }
     }

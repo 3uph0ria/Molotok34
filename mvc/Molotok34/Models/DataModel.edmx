@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Molotok34Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище db_a790a0_gseuphoriaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="Id" />
@@ -110,7 +110,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище Molotok34ModelContainer">
+        <EntityContainer Name="Хранилище db_a790a0_gseuphoriaModelContainer">
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
@@ -138,7 +138,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Molotok34Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="db_a790a0_gseuphoriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="Id" />
@@ -281,9 +281,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Molotok34ModelContainer" CdmEntityContainer="Molotok34Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище db_a790a0_gseuphoriaModelContainer" CdmEntityContainer="Molotok34Entities">
           <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="Molotok34Model.Admins">
+            <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Admins">
               <MappingFragment StoreEntitySet="Admins">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdPermission" ColumnName="IdPermission" />
@@ -293,7 +293,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="Molotok34Model.Categories">
+            <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Categories">
               <MappingFragment StoreEntitySet="Categories">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -301,7 +301,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Clients">
-            <EntityTypeMapping TypeName="Molotok34Model.Clients">
+            <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Clients">
               <MappingFragment StoreEntitySet="Clients">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
@@ -311,7 +311,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Permissions">
-            <EntityTypeMapping TypeName="Molotok34Model.Permissions">
+            <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Permissions">
               <MappingFragment StoreEntitySet="Permissions">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -322,7 +322,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="Molotok34Model.Products">
+            <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Products">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
@@ -336,7 +336,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sales">
-            <EntityTypeMapping TypeName="Molotok34Model.Sales">
+            <EntityTypeMapping TypeName="db_a790a0_gseuphoriaModel.Sales">
               <MappingFragment StoreEntitySet="Sales">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />

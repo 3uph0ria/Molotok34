@@ -1,0 +1,93 @@
+﻿@model Molotok34.Models.Products
+@{
+    ViewBag.Title = @Html.EditorFor(model => model.Name);
+
+}
+
+@Html.Partial("~/Views/Shared/_Header.cshtml")
+@Html.Partial("~/Views/Shared/_NavTop.cshtml")
+
+<!-- single-product-section -->
+<section class="single-product-section layout-1 clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ttm-single-product-details">
+                    <div class="ttm-single-product-info clearfix">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12 ml-auto mr-auto">
+                                <div class="product-gallery easyzoom-product-gallery">
+                                    <div class="product-look-preview-plus right">
+                                        <div class="pl-35 res-767-pl-15">
+                                            <div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails is-ready">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="@Html.DisplayFor(model => model.Img)" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="summary entry-summary pl-30 res-991-pl-0 res-991-pt-40">
+                                    <h2 class="product_title entry-title">@Html.DisplayFor(model => model.Name)</h2>
+                                    <h2 class="product_title entry-title" id="cost">@Html.DisplayFor(model => model.Cost)руб.</h2>
+
+                                    @if (TempData["notice"] != null)
+                                    {
+                                        <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
+                                            <p class="m-0">@TempData["notice"]</p>
+                                        </div>
+
+                                        TempData["notice"] = null;
+                                    }
+
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="md-form mt-4">
+                                            <input onmouseup="AddCost()" id="quantity" type="number" placeholder="Кол-во едениц товара" value="1" min="1" max="<?=$good['amount']?>" step="1" />
+                                        </div>
+                                        <div class="md-form mt-4">
+                                            <input class="mt-4" type="email" id="Email" name="Email" maxlength="50" placeholder="Введите Ваш Email.." required="">
+                                        </div>
+                                        <div class="md-form mt-4">
+                                            <input class="mt-4" type="tel" name="Phone" id="Phone" maxlength="18" placeholder="Введите Ваш телефон.." required="">
+                                        </div>
+                                        <div class="md-form mt-4">
+                                            <input class="mt-4" type="text" name="FullName" id="FullName" maxlength="50" placeholder="Введите Ваше ФИО.." required="">
+                                        </div>
+                                        <div class="md-form mt-4">
+                                            <button type="submit" class=" mt-4 ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor">Заказать</button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-details__short-description text">@Html.DisplayFor(model => model.Description)</div>
+
+                    @Html.Partial("~/Views/Shared/_Advantages.cshtml");
+
+                </div>
+
+                @Html.Partial("~/Views/Shared/_CatalogMini.cshtml");
+
+            </div>
+        </div><!-- row end -->
+    </div>
+</section>
+<!-- single-product-section end -->
+
+<script>
+        function AddCost() {
+            var cost, quantity;
+            quantity = document.getElementById('quantity').value;
+            cost = @Html.DisplayFor(model => model.Cost) * quantity;
+            document.getElementById('cost').textContent = cost + 'руб.';
+        }
+</script>
+
+@Html.Partial("~/Views/Shared/_Footer.cshtml");

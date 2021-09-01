@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Molotok34.Models.Products>
+
+@{
+    ViewBag.Title = "Товары";
+}
+
+@Html.Partial("~/Views/Shared/_AdminHeader.cshtml")
+@Html.Partial("~/Views/Shared/_NavAdmin.cshtml")
+
+<div class="col">
+    <h3 class="text-center font-weight-bold py-4">Каталог товаров</h3>
+    <div class="shadow">
+        <div class="row p-4">
+
+            @if (TempData["error_message"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
+                    <p class="m-0">@TempData["error_message"]</p>
+                </div>
+                TempData["error_message"] = null;
+            }
+                
+            <a href="/Admin/ProductsCreate" class="btn btn-success my-2" data-toggle="modal">Добавить товар</a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Наименование
+                        </th>
+                        <th>
+                            Цена
+                        </th>
+                        <th>
+                            Кол-во
+                        </th>
+                        <th>
+                            Категория
+                        </th>
+                        <th>
+                            Изменить
+                        </th>
+                        <th>
+                            Удалить
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cost) руб.
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Amount) шт.
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Categories.Name)
+                            </td>
+
+                            <td><a href="/Admin/ProductsUpd/@Html.DisplayFor(modelItem => item.Id)" class="btn btn-primary" data-toggle="modal">Изменить</a></td>
+                            <td><a href="/Admin/ProductsDelete/@Html.DisplayFor(modelItem => item.Id)" class="btn btn-danger" data-toggle="modal">Удалить</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Views/Shared/_AdminFooter.cshtml")
+
+
