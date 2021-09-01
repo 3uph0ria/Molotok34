@@ -1,18 +1,18 @@
 # Информационная система «Molotok34»
 
 Для данной ИС было разработано:
-- [Web-app ASP.NET MVC]()
-- [Web-API]() 
-- [WCF Service]()
-- [Desktop app (WPF)]()
+- [Web-app ASP.NET MVC](https://github.com/3uph0ria/molotok34#web-app-aspnet-mvc)
+- [Web-API](https://github.com/3uph0ria/molotok34#web-api) 
+- [WCF Service](https://github.com/3uph0ria/molotok34#wcf-service)
+- [Desktop app (WPF)](https://github.com/3uph0ria/molotok34#wpf-app)
  
 ## Web-app ASP.NET MVC
 - [Главная страница](http://gseuphoriaa-001-site1.dtempurl.com)
-- [Админка](http://gseuphoriaa-001-site1.dtempurl.com/Admin/SignIn) (tester:1234|log:pass)
+- [Админка](http://gseuphoriaa-001-site1.dtempurl.com/Admin/SignIn) Данные для входа: tester:1234 (log:pass).
 
-Клиент на сайте клиент может, делать сортировку и поиск стоваров, покупать товары (реальной оплаты на сайте нету!), смотреть контактную информацию.
+Клиент на сайте может, смотреть каталог, делать сортировку и поиск товаров, совершать покупки (реальной оплаты на сайте нету!), смотреть контактную информацию.
 
-Администратор, после авторизации в панели управления получает роль с определенным набором прав для доступа к внесению изминений информации в БД.
+Администратор, после авторизации в панели управления получает роль с определенным набором прав для доступа к внесению изменений в БД.
 
 ### Главная страница
 
