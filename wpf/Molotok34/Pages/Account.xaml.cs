@@ -52,10 +52,5 @@ namespace Molotok34.Pages
         {
             AccountFrame.Navigate(new PageServices());
         }
-
-        private void BtnReports_Click(object sender, RoutedEventArgs e)
-        {
-            AccountFrame.Navigate(new PageReports());
-        }
     }
 }

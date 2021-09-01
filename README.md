@@ -1,21 +1,60 @@
-# Интернет магазин «Molotok34»
+# Информационная система «Molotok34»
 
-Интернет магазин  «Molotok34» сможет решить проблему покупки инструментов для ремонта не выходя из дома.
+Для данной ИС было разработано:
+- [Web-app ASP.NET MVC]()
+- [Web-API]() 
+- [WCF Service]()
+- [Desktop app (WPF)]()
  
-## Изображения
+## Web-app ASP.NET MVC
+- [Главная страница](http://gseuphoriaa-001-site1.dtempurl.com)
+- [Админка](http://gseuphoriaa-001-site1.dtempurl.com/Admin/SignIn) (tester:1234|log:pass)
+
+Клиент на сайте клиент может, делать сортировку и поиск стоваров, покупать товары (реальной оплаты на сайте нету!), смотреть контактную информацию.
+
+Администратор, после авторизации в панели управления получает роль с определенным набором прав для доступа к внесению изминений информации в БД.
 
 ### Главная страница
 
-![Превью](https://github.com/3uph0ria/Molotok34/blob/master/img/img1.png?raw=true)
+![Превью](https://github.com/3uph0ria/molotok34/blob/master/img/img1.png?raw=true)
 
 ### Каталог
-![Превью](https://github.com/3uph0ria/Molotok34/blob/master/img/img2.png?raw=true)
+Поиск и фильтрация товаров на JS.
+
+![Превью](https://github.com/3uph0ria/molotok34/blob/master/img/img2.png?raw=true)
 
 ### Страница товара
-![Превью](https://github.com/3uph0ria/Molotok34/blob/master/img/img3.png?raw=true)
+![Превью](https://github.com/3uph0ria/molotok34/blob/master/img/img3.png?raw=true)
 
 ### Страница контактов
-![Превью](https://github.com/3uph0ria/Molotok34/blob/master/img/img4.png?raw=true)
+![Превью](https://github.com/3uph0ria/molotok34/blob/master/img/img4.png?raw=true)
 
 ### Панель администратора
-![Превью](https://github.com/3uph0ria/Molotok34/blob/master/img/img5.png?raw=true)
+![Превью](https://github.com/3uph0ria/molotok34/blob/master/img/img5.jpg?raw=true)
+
+### Страницы добавления/редактирвоания/уадления
+![Превью](https://github.com/3uph0ria/molotok34/blob/master/img/img6.jpg?raw=true)
+
+## Web-API
+[Документация](http://gsportfolio-001-site1.btempurl.com/Help)
+
+![Превью](https://github.com/3uph0ria/molotok34/blob/master/img/img7.jpg?raw=true)
+
+## WCF Service
+В нем разработан класс для работы с ранее созданным Web-API, для работы запустите APiHost (molotok34\wcf\Molotok34\ApiHost\bin\Debug.exe)
+
+![Превью](https://github.com/3uph0ria/molotok34/blob/master/img/img8.jpg?raw=true)
+
+## WPF-App
+Перед запуском, необходимо запустить WCF-host (molotok34\wcf\Molotok34\ApiHost\bin\Debug.exe)
+
+Администратор, после авторизации получает роль с определенным набором прав для доступа к внесению изминений информации в БД через API.
+
+### Авторизация
+![Превью](https://github.com/3uph0ria/molotok34/blob/master/img/img9.jpg?raw=true)
+
+### Пример страниц вывода строк
+![Превью](https://github.com/3uph0ria/molotok34/blob/master/img/img10.jpg?raw=true)
+
+### Пример страниц добавления/редактирования
+![Превью](https://github.com/3uph0ria/molotok34/blob/master/img/img11.jpg?raw=true)
