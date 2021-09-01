@@ -47,3 +47,6 @@ D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageAddEditSales.g.cs
 D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageAddEditCategories.baml
 D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageAddEditClients.baml
 D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageAddEditSales.baml
+D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Molotok34.csproj.ResolveComReference.cache
+D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageReports.g.cs
+D:\Git\molotok34-asp\wpf\Molotok34\obj\Debug\Pages\PageReports.baml

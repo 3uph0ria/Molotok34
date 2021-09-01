@@ -75,6 +75,14 @@
                         Foreground="#fff"
                         HorizontalAlignment="Center"
                         Style="{DynamicResource MaterialDesignFlatButton}"
+                        Name="BtnReports"
+                        Click="BtnReports_Click"
+                        Content="Отчеты" />
+                    <Button
+                        Margin="4"
+                        Foreground="#fff"
+                        HorizontalAlignment="Center"
+                        Style="{DynamicResource MaterialDesignFlatButton}"
                         Name="Btnback"
                         Click="Btnback_Click"
                         Content="Выход" />
