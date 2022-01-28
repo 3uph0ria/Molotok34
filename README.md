@@ -7,8 +7,8 @@
 - [Desktop app (WPF)](https://github.com/3uph0ria/molotok34#wpf-app)
  
 ## Web-app ASP.NET MVC
-- [Главная страница](http://gseuphoriaa-001-site1.dtempurl.com)
-- [Админка](http://gseuphoriaa-001-site1.dtempurl.com/Admin/SignIn) Данные для входа: tester:1234 (log:pass).
+- [Главная страница](http://gsmolotok34-001-site1.htempurl.com)
+- [Админка](http://gsmolotok34-001-site1.htempurl.com/Admin/SignIn) Данные для входа: tester:1234 (log:pass).
 
 Клиент на сайте может, смотреть каталог, делать сортировку и поиск товаров, совершать покупки (реальной оплаты на сайте нету!), смотреть контактную информацию.
 
